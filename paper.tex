@@ -180,9 +180,9 @@ partindo da Engenharia de Requisitos e chegando na construção do software,
 a rastreabilidade dos requisitos e das técnicas de implementação de
 acessibilidade é alcançada.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
-\includegraphics[height=6.2cm]{img/figuramagica.png}
+\includegraphics[scale=0.25]{img/figuramagica.png}
 \caption{Detalhamento dos Subprocessos do MTA para prover a rastreabilidade dos
 requisitos de acessibilidade de acordo com a abordagem adotada neste trabalho}
 \label{fig:figmagica}
@@ -263,9 +263,9 @@ O Projeto Aegis \cite{aegis:13} define uma ontologia de acessibilidade, descrita
 A Figura \ref{fig:association} mostra o comportamento e relacionamento das ferramentas, tecnologias
 e atores envolvidos no desenvolvimento do produto.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
-\includegraphics[height=6.2cm]{./img/developmentNew2.png}
+\includegraphics[scale=0.25]{./img/developmentNew2.png}
 \caption{Associação das ferramentas e atores no contexto do trabalho}
 \label{fig:association}
 \end{figure}
@@ -289,7 +289,17 @@ UML, adicionando as referências às associações de acessibilidade quando nece
 produto acessível que será entregue.
 \end{itemize}
 
-A ferramenta possui três visões principais, de acordo com a Figura \ref{fig:acctrace}. No editor (AccTrace Editor) é possível alterar os repositórios dos requisitos e gerar as associações entre os modelos UML, requisitos e técnicas de implementação. Na visão
+A ferramenta possui três visões principais, de acordo com a Figura \ref{fig:acctrace}. 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.26]{./img/acctrace.png}
+\caption{Visualização da ferramenta AccTrace na tela principal do
+Eclipse}
+\label{fig:acctrace}
+\end{figure}
+
+No editor (AccTrace Editor) é possível alterar os repositórios dos requisitos e gerar as associações entre os modelos UML, requisitos e técnicas de implementação. Na visão
 dos requisitos (Requirement Associations) é possível visualizar quais requisitos associados
 ao modelo UML foram selecionados no editor. Na visão das técnicas já vinculadas
 (Accessibility Specifications View) é possível visualizar as técnicas de implementação já
@@ -298,21 +308,13 @@ selecionado na visão dos requisitos. Além disso, é possível remover as técn
 implementação associadas. As três visões são importantes para o correto funcionamento
 da ferramenta.
 
-\begin{figure}[h]
-\centering
-\includegraphics[height=6.2cm]{./img/acctrace.png}
-\caption{Visualização da ferramenta AccTrace na tela principal do
-Eclipse}
-\label{fig:acctrace}
-\end{figure}
-
 Uma vez selecionado o modelo UML e o requisito, é possível efetuar a associação da
 técnica de implementação de acessibilidade, clicando com o botãoo direito do mouse em
 cima do modelo UML, conforme demonstrado na Figura \ref{fig:rightclick}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
-\includegraphics[scale=0.45]{./img/rightclick.png}
+\includegraphics[scale=0.25]{./img/rightclick.png}
 \caption{Procedimento para efetuar a associação da técnica de implementação de
 acessibilidade}
 \label{fig:rightclick}
@@ -320,9 +322,9 @@ acessibilidade}
 
 A hieraquia dos elementos da ontologia, presentes nos arquivos OWL, são apresentados em alto nível na Figura \ref{fig:ontologyrelationship}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
-\includegraphics[scale=0.3]{./img/ontologyrelationship.png}
+\includegraphics[scale=0.18]{./img/ontologyrelationship.png}
 \caption{Relacionamento entre os elementos da ontologia (Elementos retirados
 da ontologia)}
 \label{fig:ontologyrelationship}
@@ -362,18 +364,28 @@ mostra a visão das informações recuperadas na visão específica para este fi
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.3]{./img/commentrecovery.png}
+\includegraphics[scale=0.17]{./img/commentrecovery.png}
 \caption{Passos para recuperação das informações relevantes através de um
 comentário padrão AccTrace}
 \label{fig:commentrecovery}
 \end{figure} 
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
-\includegraphics[scale=0.5]{./img/commentview.png}
+\includegraphics[scale=0.45]{./img/commentview.png}
 \caption{Explicitação do comentário selecionado}
 \label{fig:commentview}
 \end{figure}
+
+\section{Avaliação - Prova de Conceito}
+
+Para validar a efetividade da abordagem proposta, foi criado um projeto simples como prova de conceito, utilizando o MTA, o AccTrace e os outros recursos relacionados neste trabalho. O objetivo desta prova de conceito foi verificar se o AccTrace:
+
+\begin{itemize}
+  \item Permite a verificação da relação entre os requisitos e casos de uso com a etapa de codificação;
+  \item Permite que seja feito o rastreamento dos requisitos de acessibilidade, desde a sua concepção até as fases de codificação;
+  \item Permite que o desenvolvedor consiga verificar, em nível de código, a associação dos requisitos, modelos UML e técnicas de implementação de acessibilidade.
+\end{itemize}
 
 \begin{thebibliography}{4}
 
@@ -444,7 +456,7 @@ Software Requirement Traceability Matrix. In: Knowledge Acquisition and
 Modeling, 2009. KAM '09. Second International Symposium on, vol. 1, pp.
 160--163 (2009)
 
-\bibitem{aegis:13} AEGIS Ontology, \url{http://www.aegis-project.eu/index.php?option=com_content&view=article&id=107&Itemid=65}
+\bibitem{aegis:13} AEGIS Ontology, \url{http://www.aegis-project.eu/index.php?option=com_content&view=article&id=107&Itemid=65}. September 2013.
 
 
 \end{thebibliography}
