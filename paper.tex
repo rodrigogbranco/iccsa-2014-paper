@@ -379,13 +379,79 @@ comentário padrão AccTrace}
 
 \section{Avaliação - Prova de Conceito}
 
-Para validar a efetividade da abordagem proposta, foi criado um projeto simples como prova de conceito, utilizando o MTA, o AccTrace e os outros recursos relacionados neste trabalho. O objetivo desta prova de conceito foi verificar se o AccTrace:
+Para validar a efetividade da abordagem proposta, foi criado um projeto simples (software web buscador) como prova de conceito, utilizando o MTA, o AccTrace e os outros recursos relacionados neste trabalho. O objetivo desta prova de conceito foi verificar se o AccTrace:
 
 \begin{itemize}
   \item Permite a verificação da relação entre os requisitos e casos de uso com a etapa de codificação;
   \item Permite que seja feito o rastreamento dos requisitos de acessibilidade, desde a sua concepção até as fases de codificação;
   \item Permite que o desenvolvedor consiga verificar, em nível de código, a associação dos requisitos, modelos UML e técnicas de implementação de acessibilidade.
 \end{itemize}
+
+O Desenvolvimento da prova de conceito pode ser encontrada em \cite{branco:13}, e os arquivos e artefatos estão disponíveis para download em \url{http://???}. Os objetivos elencados anteriormente foram atingidos: os plugins utilizados são interoperáveis, permitindo a definição e relacionamento dos requisitos e modelos UML, recuperados na etapa de codificação pela ferramenta; o rastreamento pôde ser feito no plugin AccTrace, bem como utilizando a matriz de rastreabilidade gerada pela ferramenta; o desenvolvedor consegue, a partir de um comentário AccTrace personalizado, recuperar informações sobre o requisito e modelo UML associado.
+
+Portanto, foi possível rastrear os requisitos, desde a sua concepção e definição, passando
+pelos modelos e artefatos UML e finalmente, sendo recuperados já na fase de
+codificação. A entrega de informações que possam ser úteis ao desenvolvedor é efetuada.
+O especialista em acessibilidade informa qual técnica de acessibilidade determinado
+modelo/requisito deve usar como guia (seja abordagens, diretrizes, critérios de sucesso,
+técnicas, etc), estando estas informações disponíveis para consulta pelo desenvolvedor. O
+desenvolvedor terá, então, um ponto de partida para codificar o produto da forma correta.
+
+\section{Limitações}
+
+A prova de conceito aqui apresentada visa demostrar como seria a utilização das
+técnicas e ferramentas em um ambiente real. Contudo, não foi possível verificar
+se os passos aqui apresentados seriam realmente utilizados em projeto real. Apesar de estender a
+ISO/IEC 12207, a utilização efetiva do MTA não foi encontrada na
+literatura, para servir como base para este trabalho.
+
+A operação dos plugins construídos/alterados ao longo deste trabalho se
+mostrou difícil em casos pontuais. Algumas dificuldades só foram
+encontradas na execução da prova de conceito, sugerindo que algumas partes
+específicas da ferramenta devem ser adequadas, para que a usabilidade das
+ferramentas seja melhorada.
+
+O volume de dados dos artefatos gerados foi relativamente pequeno. A falta de
+profissionais que efetivamente trabalhem com Engenharia de Requisitos, Modelagem
+e principalmente, a falta de um Especialista em Acessibilidade, profissionais
+estes que poderiam gerar dados mais próximos de um projeto real, impacta
+significativamente na análise do volume de dados \textit{versus} facilidade de
+utilização. As ferramentas geralmente se tornam mais complexas e precisam de
+filtros complexos para entregar os dados corretos no momento certo, escondendo
+os demais, quando o volume de dados é muito grande.
+
+A falta de um Especialista em Acessibilidade impactou negativamente em perceber
+se as informações apresentadas pela ferramenta foram suficientes ou
+desnecessárias. Não foi possível dizer se os mapeamentos encontrados na
+ontologia utilizada foram suficientes para fornecer informações úteis aos
+projetistas/desenvolvedores. Este não é um problema tão sério, já que a
+ontologia pode ser modificada/aprimorada utilizando a ferramenta
+Protegé, devendo o plugin AccTrace ser alterado para que
+comporte a nova realidade do domínio.
+
+Devido a complexidade dos relacionamentos da ontologia utilizada, apenas as
+diretrizes do modelo de referência WCAG 2.0 foi utilizada, por já estarem
+previamente mapeadas. O plugin AccTrace foi inteiramente construído
+utilizando estes relacionamentos como orientação. Por este motivo, a inclusão de
+outros documentos de referência não é uma tarefa simples. Primeiro,
+a ontologia deve ser construída e depois o plugin AccTrace deve ser
+adaptado para refletir a nova realidade do modelo de referência. A consequência
+deste fato é que a atualização dos modelos de referência torna-se uma tarefa
+complexa, inclusive para a atualização do modelo WCAG 2.0, se houver diferenças na estrutura já utilizada na ontologia usada neste trabalho.
+Caso a estrutura entre os elementos da ontologia não seja alterada, não é necessário fazer alterações no plugin AccTrace.
+
+Uma limitação, que deve ser tratada em trabalhos futuros, é que o sistema
+atualmente não trata o caso de remoção de requisitos/modelos UML dos
+artefatos iniciais. Mudanças nos requisitos e modelos UML são automaticamente atualizados (visto que apenas as referências a esses objetos são armazenadas).
+Contudo, as remoções dos elementos nos artefatos causam um comportamento
+inesperado no sistema, obrigando o modelo AccTrace a ser atualizado
+manualmente (com comandos explícitos de remoção das associações no
+plugin).
+
+\section{Conclusões e Trabalhos Futuros}
+
+
+
 
 \begin{thebibliography}{4}
 
@@ -458,6 +524,8 @@ Modeling, 2009. KAM '09. Second International Symposium on, vol. 1, pp.
 
 \bibitem{aegis:13} AEGIS Ontology, \url{http://www.aegis-project.eu/index.php?option=com_content&view=article&id=107&Itemid=65}. September 2013.
 
+\bibitem{branco:13} Branco, R. G.: Um processo para o desenvolvimento de aplicações Web Acessíveis.
+Master Thesis, UFMS (2013)
 
 \end{thebibliography}
 
