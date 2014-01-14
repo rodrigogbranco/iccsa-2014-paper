@@ -180,7 +180,7 @@ partindo da Engenharia de Requisitos e chegando na construção do software,
 a rastreabilidade dos requisitos e das técnicas de implementação de
 acessibilidade é alcançada.
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 \includegraphics[height=6.2cm]{img/figuramagica.png}
 \caption{Detalhamento dos Subprocessos do MTA para prover a rastreabilidade dos
@@ -236,7 +236,115 @@ Software acessível.
 
 \section{Detalhes de Implementação}
 
+O AccTrace foi desenvolvido utilizando as seguintes tecnologias:
 
+\begin{itemize}
+  \item MTA;
+  \item Eclipse Juno - IDE;
+  \item Requirement Designer v0.8.0 - Gerenciamento de Requisitos;
+  \item UML Designer v2.1.0 - Modelagem UML;
+  \item UML to Java Generator v1.0.2 - Geração de código;
+  \item Java JRE e JDK 1.7 - Desenvolvimento da ferramenta;
+  \item Projeto Aegis - ontologia de mapeamento do domínio de acessibilidade (usando o WCAG 2.0).
+\end{itemize}
+
+O Eclipse é uma plataforma madura e foi escolhido como IDE por vários motivos. Ele
+serve como base para diversos produtos e tecnologias baseadas em uma IDE, provendo
+uma API para facilitar a integração. O desenvolvimento de plugins para o Eclipse é feito diretamente na IDE,
+de forma prática e transparente, tendo ampla documentação a respeito. A linguagem
+utilizada para o desenvolvimento do plugin é a linguagem Java, assim como o código
+gerado pelo plugin de exportação.
+
+Os plugins de gerenciamento de requisitos (Requirement Designer) e modelagem (UML Designer) são desenvolvidos pela Obeo e são interoperáveis, portanto, para permitir uma integração suave entre as ferramentas, o plugin escolhido para geração de código foi o UML to Java Generator, desenvolvido pela
+mesma empresa. Todos estes plugins, assim como o AccTrace, persistem seus dados como arquivos RDF modelados com o formato EMF. Os plugins são disponibilizados sob a licença Eclipse Public License v1.0, assim como a própria IDE. Dessa forma, é possível estudar, alterar e customizar seus componentes para atingir os objetivos do trabalho.
+
+O Projeto Aegis \cite{aegis:13} define uma ontologia de acessibilidade, descrita no padrão OWL 1.0, e vai além de realizar o mapeamento dos conceitos de acessibilidade e cenários. Os arquivos disponibilizados mapeiam o modelo WCAG 2.0 (incluindo técnicas de implementação, critérios de sucesso e falha, etc), leitores de tela, navegadores textuais, lentes de aumento, WAI/ARIA, entre outros.
+
+A Figura \ref{fig:association} mostra o comportamento e relacionamento das ferramentas, tecnologias
+e atores envolvidos no desenvolvimento do produto.
+
+\begin{figure}[h]
+\centering
+\includegraphics[height=6.2cm]{./img/developmentNew2.png}
+\caption{Associação das ferramentas e atores no contexto do trabalho}
+\label{fig:association}
+\end{figure}
+
+Podemos interpretar a Figura \ref{fig:association} da seguinte forma:
+
+\begin{itemize}
+  \item O MTA é o processo de desenvolvimento e deve permear todas as fases do processo;
+  \item O especialista em acessibilidade (Accessibility Expert) deve participar das fases de
+desenvolvimento especificadas no MTA;
+  \item Os requisitos devem ser coletados e informados na fase de engenharia de requisitos
+(utilizando a ferramenta Requirement Designer) e os modelos e artefatos UML
+devem ser gerados (utilizando a ferramenta UML Designer). O especialista em
+acessibilidade deve auxiliar a alimentação destes dados, filltrando os requisitos de
+acessibilidade para que eles sejam associados aos modelos UML (utilizando a ferramenta
+Requirement Designer);
+  \item O AccTrace recupera as associações dos requisitos e modelos UML, permitindo que o especialista especifique as técnicas de implementaçãoo de acessibilidade para cada uma das associações. As técnicas, diretrizes, abordagens, dentre outros estão armazenadas em arquivos OWL embutidos na ferramenta;
+  \item A ferramenta de geração de código produzirá o código stub a partir dos modelos
+UML, adicionando as referências às associações de acessibilidade quando necessário;
+  \item Os desenvolvedores refinam o cóodigo até que o mesmo esteja apto a se tornar o
+produto acessível que será entregue.
+\end{itemize}
+
+A ferramenta possui três visões principais, de acordo com a Figura \ref{fig:acctrace}. No editor (AccTrace Editor) é possível alterar os repositórios dos requisitos e gerar as associações entre os modelos UML, requisitos e técnicas de implementação. Na visão
+dos requisitos (Requirement Associations) é possível visualizar quais requisitos associados
+ao modelo UML foram selecionados no editor. Na visão das técnicas já vinculadas
+(Accessibility Specifications View) é possível visualizar as técnicas de implementação já
+associadas, de acordo com o modelo UML selecionado no editor e o requisito de acessibilidade
+selecionado na visão dos requisitos. Além disso, é possível remover as técnicas de
+implementação associadas. As três visões são importantes para o correto funcionamento
+da ferramenta.
+
+\begin{figure}[h]
+\centering
+\includegraphics[height=6.2cm]{./img/acctrace.png}
+\caption{Visualização da ferramenta AccTrace na tela principal do
+Eclipse}
+\label{fig:acctrace}
+\end{figure}
+
+Uma vez selecionado o modelo UML e o requisito, é possível efetuar a associação da
+técnica de implementação de acessibilidade, clicando com o botãoo direito do mouse em
+cima do modelo UML, conforme demonstrado na Figura \ref{fig:rightclick}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.45]{./img/rightclick.png}
+\caption{Procedimento para efetuar a associação da técnica de implementação de
+acessibilidade}
+\label{fig:rightclick}
+\end{figure}
+
+A hieraquia dos elementos da ontologia, presentes nos arquivos OWL, são apresentados em alto nível na Figura \ref{fig:ontologyrelationship}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3]{./img/ontologyrelationship.png}
+\caption{Relacionamento entre os elementos da ontologia (Elementos retirados
+da ontologia)}
+\label{fig:ontologyrelationship}
+\end{figure}
+
+Após os requisitos, modelos UML e as técnicas de implementação serem associadas, é possível gerar a matriz de rastreabilidade.
+Neste trabalho foi utilizado o Apache ODF Toolkit para geração do documento de rastreamento com formato Open-Document Spreadsheet file format (ODS), através da API de alto nível Simple. No documento, são geradas três planilhas: Requisitos \textit{versus} Modelos, Requisitos \textit{versus} Técnicas e Modelos \textit{versus} Técnicas. A planilha Requisitos \textit{versus} Modelos lista uma matriz de todos os Requisitos associados aos respectivos modelos. Requisitos que não estão associados a um modelo também são listados. Essa situação está prevista
+justamente para identificar problemas na associação que devam ser corrigidos. Para as
+planilhas Requisitos \textit{versus} Técnicas e Modelos \textit{versus} Técnicas, apenas os objetos que
+estão efetivamente referenciados na ferramenta são listados.
+
+Por fim, é possível efetuar a geração de código utilizando o plugin UML to Java Generator, que por sua vez utiliza o ponto de extensão do plugin Acceleo.
+O plugin UML to Java Generator foi especialmente modificado para que reconhecesse as associações entre Requisitos, Modelos UML e técnicas de implementação de acessibilidade, gerando comentários personalizados nos escopos corretos das classes de acordo com a expressão regular Java demonstrada a seguir:
+
+\medskip
+
+\noindent
+\begin{verbatim}
+String regex = "//!ACCTRACE!(/)?([^/\\\\0#]+(/)?)+#([^\\*\\*/])+";
+\end{verbatim}
+%
+\noindent
 
 \begin{thebibliography}{4}
 
@@ -306,6 +414,8 @@ the Unified Process. In: Engineering of Computer-Based Systems, 2007. ECBS '07.
 Software Requirement Traceability Matrix. In: Knowledge Acquisition and
 Modeling, 2009. KAM '09. Second International Symposium on, vol. 1, pp.
 160--163 (2009)
+
+\bibitem{aegis:13} AEGIS Ontology, \url{http://www.aegis-project.eu/index.php?option=com_content&view=article&id=107&Itemid=65}
 
 
 \end{thebibliography}
