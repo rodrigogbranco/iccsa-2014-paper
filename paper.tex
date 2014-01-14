@@ -169,9 +169,13 @@ O AccTrace utiliza como escopo o Processo de Desenvolvimento de Software do MTA
 (Projeto de Software) e 6 (Construção do software). Como o escopo deste trabalho
 diz respeito a rastreabilidade dos requisitos de acessibilidade e suas técnicas
 de implementaçÕ, as tarefas de testes, presentes no Subprocesso 6, não serão
-levadas em consideração.
+levadas em consideração. 
 
-A figura \ref{fig:figmagica} apresenta a abordagem escolhida e mostra como,
+Neste trabalho, propõe-se que os artefatos gerados pelo MTA aqui utilizados e os
+artefatos novos introduzidos estejam em um formato legível por máquina, para
+persistência de tais informações no modelo de dados da ferramenta.
+
+A Figura \ref{fig:figmagica} apresenta a abordagem escolhida e mostra como,
 partindo da Engenharia de Requisitos e chegando na construção do software,
 a rastreabilidade dos requisitos e das técnicas de implementação de
 acessibilidade é alcançada.
@@ -199,12 +203,40 @@ O Subprocesso 4 traz duas tarefas de acessibilidade (\textbf{Estabelecer e
 Documentar os Requisitos de Acessibilidade do Software} e \textbf{Avaliar os
 Requisitos de Acessibilidade do Software}). A saída da tarefa {Avaliar os
 Requisitos de Acessibilidade do Software} gera o artefato \textbf{Documento de
-requisitos de acessibilidade do software avaliados e aprovados}. Neste trabalho,
-propõe-se que este artefato seja gerado em um formato legível por máquina. O
-formato escolhido neste trabalho foi o XMI/XML.
+requisitos de acessibilidade do software avaliados e aprovados}.
 
-Matrizes de rastreabilidade são usadas para promover a rastreabilidade dos
-requisitos de acessibilidade
+A construção dos modelos UML na etapa Análise e Modelagem, conforme apresentado
+na Figura \ref{fig:figmagica}, recebe como entrada o artefato \textbf{Documento
+de Requisitos do software avaliado e aprovado}, para que a associação dos
+requisitos e modelos seja efetuada.
+
+\subsection{Subprocesso 5 - Projeto de Software}
+
+O Subprocesso 5 introduz três tarefas de acessibilidade (\textbf{Projetar
+Interfaces Externas Acessíveis}, \textbf{Realizar Projeto Navigacional
+Acessível} e \textbf{Avaliar a Acessibilidade do Projeto de Software}). O
+Documento de Requisitos e os Modelos UML são utilizados para realizar a
+especificação de Interfaces e do Projeto Navegacional, gerando o artefato
+\textbf{Projeto de Software Acessível}. Neste momento, é possível especificar
+quais serão as técnicas de implementação de acessibilidade e associá-las aos
+requisitos e modelos UML.
+
+\subsection{Subprocesso 6 - Construção do Software}
+
+O Subprocesso 6 possui duas tarefas importantes para o escopo deste trabalho
+(\textbf{Especificar Técnicas para Implementação da Acessibilidade da
+Interface e do Código} e \textbf{Codificar e documentar cada unidade de software
+de acordo com as técnicas de acessibilidade}). Para a rastreabilidade, a
+especificação das técnicas de implementação de acessibilidade já foram feitas no
+Subprocesso 5, faltando aqui efetuar a documentação para as mesmas. A etapa
+\textbf{Construção do Software} (Figura \ref{fig:figmagica}) utilizará os
+artefatos \textbf{Projeto de Software Acessível} e as especificações de técnicas
+de implementação de acessibilidade para finalmente permitir a construção do
+Software acessível.
+
+\section{Detalhes de Implementação}
+
+
 
 \begin{thebibliography}{4}
 
