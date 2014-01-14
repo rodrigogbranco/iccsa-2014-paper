@@ -346,6 +346,35 @@ String regex = "//!ACCTRACE!(/)?([^/\\\\0#]+(/)?)+#([^\\*\\*/])+";
 %
 \noindent
 
+A expressão regular foi construída de modo a permitir, através de uma string pré-definida, a recuperação do arquivo Acctrace,
+bem como do elemento de associação referenciado. O comentário personalizado foi projetado de forma a não interfirir em outros
+comentários da linguagem. Iniciando pelas barras duplas (//), foi definido um
+identificador que tem a intenção de ser único (!ACCTRACE!), e o próprio ID do recurso RDF possui o caracter ``\#'', que é usado para separador entre
+o recurso (arquivo a ser aberto) e o elemento a ser resgatado (no caso, a
+associação criada entre o requisito e o modelo UML). A opção de se
+utilizar um comentário de linha (ao invés de comentários de bloco, usados por exemplo pela documentação JavaDoc) decorreu do fato
+do comentário descrito ser incluído dentro do corpo da classe e métodos, e caso
+o programador decida comentar o trecho de código inteiro, esse comentário não
+atrapalharia essa operação.
+
+A Figura \ref{fig:commentrecovery} mostra os passos necessários para recuração das informações de um comentário AccTrace, e a Figura \ref{fig:commentview}
+mostra a visão das informações recuperadas na visão específica para este fim no Eclipse.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{./img/commentrecovery.png}
+\caption{Passos para recuperação das informações relevantes através de um
+comentário padrão AccTrace}
+\label{fig:commentrecovery}
+\end{figure} 
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{./img/commentview.png}
+\caption{Explicitação do comentário selecionado}
+\label{fig:commentview}
+\end{figure}
+
 \begin{thebibliography}{4}
 
 \bibitem{lazar:04} Lazar, J., Dudley-Sponaugle, A.,  Greenidge, K.-D.: Improving web accessibility:
