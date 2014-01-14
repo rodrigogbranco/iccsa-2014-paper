@@ -162,7 +162,49 @@ rastreabilidade dos requisitos \cite{5223183,6511842,4148940,5362244}. Contudo,
 não foi encontrado na literatura estudos específicos sobre a rastreabilidade de
 requisitos de acessibilidade durante o processo de desenvolvimento de software.
 
+\section{Abordagem}
 
+O AccTrace utiliza como escopo o Processo de Desenvolvimento de Software do MTA
+\cite{maia:10}, e os subprocessos 4 (Análise de Requisitos do Software), 5
+(Projeto de Software) e 6 (Construção do software). Como o escopo deste trabalho
+diz respeito a rastreabilidade dos requisitos de acessibilidade e suas técnicas
+de implementaçÕ, as tarefas de testes, presentes no Subprocesso 6, não serão
+levadas em consideração.
+
+A figura \ref{fig:figmagica} apresenta a abordagem escolhida e mostra como,
+partindo da Engenharia de Requisitos e chegando na construção do software,
+a rastreabilidade dos requisitos e das técnicas de implementação de
+acessibilidade é alcançada.
+
+\begin{figure}
+\centering
+\includegraphics[height=6.2cm]{img/figuramagica.png}
+\caption{Detalhamento dos Subprocessos do MTA para prover a rastreabilidade dos
+requisitos de acessibilidade de acordo com a abordagem adotada neste trabalho}
+\label{fig:figmagica}
+\end{figure}
+
+\subsection{Especialista em Acessibilidade}
+
+O MTA apresenta o papel de Especialista em Acessibilidade, fundamental em todas
+as etapas das tarefas de acessibilidade. Assim como o MTA, o AccTrace supõe que
+a equipe de desenvolvimento possui tal persona, cujo papel é identificar os
+requisitos de acessibilidade, bem como apresentar a associação dos requisitos,
+modelos UML e técnicas de implementação de acessibilidade, que serão explicadas
+adiante.
+
+\subsection{Subprocesso 4 - Análise de Requisitos de Software}
+
+O Subprocesso 4 traz duas tarefas de acessibilidade (\textbf{Estabelecer e
+Documentar os Requisitos de Acessibilidade do Software} e \textbf{Avaliar os
+Requisitos de Acessibilidade do Software}). A saída da tarefa {Avaliar os
+Requisitos de Acessibilidade do Software} gera o artefato \textbf{Documento de
+requisitos de acessibilidade do software avaliados e aprovados}. Neste trabalho,
+propõe-se que este artefato seja gerado em um formato legível por máquina. O
+formato escolhido neste trabalho foi o XMI/XML.
+
+Matrizes de rastreabilidade são usadas para promover a rastreabilidade dos
+requisitos de acessibilidade
 
 \begin{thebibliography}{4}
 
