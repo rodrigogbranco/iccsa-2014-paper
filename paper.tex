@@ -79,13 +79,11 @@ Cidade Universitária, Campo Grande - MS, Brasil\\
 
 
 \begin{abstract}
-The abstract should summarize the contents of the paper and should
-contain at least 70 and at most 150 words. It should be written using the
-\emph{abstract} environment.
+
+Teste
+
 \keywords{Accessibility, Requirement Traceability, Software Development
 Process, CASE Tool}
-%\keywords{We would like to encourage you to list your keywords within
-%the abstract section}
 \end{abstract}
 
 
@@ -133,34 +131,15 @@ abordagem tenta resolver.
 
 \section{Trabalhos Relacionados}
 
-Os trabalhos anteriores relacionados a este podem ser divididos em três grupos:
-Acessibilidade no Processo de Desenvolvimento de Software, Rastreabilidade de
-Requisitos e Ontologias para o Mapeamento do Domínio.
-
-\subsection{Acessibilidade no Processo de Desenvolvimento de Software}
-
-O tema Acessibilidade no Processo de desenvolvimento de software ainda
-é pouco explorado. Maia \cite{maia:10} propôs  integrar usabilidade e
-acessibilidade aos processos de Engenharia de Software criando o MTA (Modelo de
-Tarefas de Acessibilidade), um modelo de desenvolvimento, baseado na norma ISO/IEC 12207, aplicável
-ao WCAG, que permite o apoio ferramental ao modelo.
-
-\subsection{Rastreabilidade de Requisitos}
-
-Diversos estudos que dizem respeito ao rastreamento de requisitos podem ser
-encontrados na literatura.
-
- Em contrapartida, podem ser encontrados diversos
+Conforme apontado por Dias \cite{analuizadias:2010}, a grande concentração de esforços quando o tema é acessibilidade é em relação a avaliação e validação de produtos, bem como a realização de testes com usuários. O tema \textit{Acessibilidade no Processo de desenvolvimento de software} ainda
+é pouco explorado \cite{maia:10}. Em contrapartida, podem ser encontrados diversos
 estudos que dizem respeito ao rastreamento de requisitos
-\cite{5970169,292398,5485417,6405269}, 
-
-\subsection{Ontologias para o Mapeamento do Domínio}
-
-bem como encontrar estudos que utilizam
+\cite{5970169,292398,5485417,6405269}, bem como encontrar estudos que utilizam
 ontologias para o mapeamento do domínio no processo de desenvolvimento ou na
 rastreabilidade dos requisitos \cite{5223183,6511842,4148940,5362244}. Contudo,
 não foi encontrado na literatura estudos específicos sobre a rastreabilidade de
-requisitos de acessibilidade durante o processo de desenvolvimento de software.
+requisitos de acessibilidade durante o processo de desenvolvimento de \textit{software}. Também não foi encontrado trabalhos que conseguissem,
+em nível de código, resgatar as informações sobre a rastreabilidade dos requisitos e modelos UML.
 
 \section{Abordagem}
 
@@ -455,7 +434,65 @@ plugin).
 
 \section{Conclusões e Trabalhos Futuros}
 
+Este estudo mostrou ser possível especificar, antes das fases de codificação e vinculadas aos modelos e
+requisitos de acessibilidade, as técnicas de implementação que deverão
+ser visualizadas pelos programadores, promovendo a rastreabilidade dos requisitos de acessibilidade durante o processo. A utilização de uma ontologia pré-definida do projeto Aegis \cite{aegis:13} ajudou a alcançar tal objetivo, estendendo as
+técnicas de implementação anteriormente ditas para abordagens, diretrizes,
+critérios de sucesso, entre outros.
 
+Assim como no trabalho de Maia \cite{maia:10}, este trabalho pressupõe que um
+especialista em acessibilidade participe do processo de desenvolvimento, principalmente nas
+Subtarefas de acessibilidade propostas pelo MTA. A proposta deste trabalho
+pode se estender para outras áreas (por exemplo, usabilidade, segurança, etc),
+desde que haja um especialista e que o domínio esteja mapeado na forma de uma
+ontologia, ou outro formato que possa ser interpretado por uma ferramenta
+CASE.
+
+As alternativas disponíveis promovem a rastreabilidade entre requisitos \textit{versus} modelos UML. Contudo, não foi encontrado como é possível utilizar as alternativas para recuperar informações de rastreabilidade dos requisitos partindo do código fonte do programa. Também não foi possível identificar se essas alternativas permitem a associação de técnicas de implementação aos requisitos e modelos UML.
+
+É possível apontar, portanto, cinco grandes contribuições fornecidas por este
+trabalho:
+
+\begin{enumerate}
+  \item estender e dar suporte ao MTA, proposto por \cite{maia:10};
+  \item abordar o rastreamento dos requisitos de acessibilidade em um processo
+  de desenvolvimento que inclui tarefas de acessibilidade (MTA);
+  \item permitir a especificação de técnicas de implementação de acessibilidade, 
+  mapeadas em uma ontologia pré-definida;
+  \item recuperar as informações de rastreabilidade por meio comentários
+  personalizado no código fonte;
+  \item fornecer uma ferramenta como prova de conceito.
+\end{enumerate}
+
+\subsection{Trabalhos Futuros}
+
+É possível identificar várias atividades para trabalhos futuros:
+
+\begin{itemize}
+  \item efetuar um estudo de caso com um projeto real, que utilize o MTA e
+  use os plugins aqui elencados, inclusive os plugins
+  construídos e customizados para promover a rastreabilidade e geração de
+  código;
+  \item efetuar um estudo de caso com usuários reais, utilizando o
+  software construído no item anterior e avaliar a acessibilidade do
+  mesmo;
+  \item estudar a utilização de métodos dinâmicos (a serem definidos) de
+  rastreabilidades dos requisitos;
+  \item efetuar o mapeamento da ontologia para outros documentos de referência
+  em acessibilidade;
+  \item aumentar a usabilidade dos plugins construídos/modificados,
+  melhorando as mensagens apresentadas, aproveitando o relacionamento da
+  ontologia do Projeto Aegis;
+  \item estender o escopo deste trabalho, incluíndo tarefas de testes e
+  integração do software e do sistema (Subtarefas 7, 8, 9 e 10 do
+  MTA);
+  \item tratar o caso de remoção de requisitos/modelos UML já relacionados
+  no modelo AccTrace;
+  \item estender a matriz de rastreabilidade dos requisitos aqui construída,
+  para incluir os casos de testes descritos no item anterior;
+  \item utilizar outro domínio de interesse como base para os estudos futuros,
+  como por exemplo usabilidade de software.
+\end{itemize}
 
 
 \begin{thebibliography}{4}
